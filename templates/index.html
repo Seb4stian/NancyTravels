@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NancyTravels – Your AI Travel Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ── Navigation ── -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-logo">✈️</span>
+      <span class="nav-title">NancyTravels</span>
+    </div>
+    <div class="nav-links">
+      <a href="/" class="nav-link active">Chat</a>
+      <a href="/about" class="nav-link">About</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Plan Your Perfect Trip</h1>
+      <p class="hero-subtitle">
+        Tell me your destination, budget, and group size — I'll craft a personalized itinerary with restaurants, events, and attractions.
+      </p>
+    </div>
+  </header>
+
+  <!-- ── Chat Container ── -->
+  <main class="chat-wrapper">
+    <div class="chat-container" id="chatContainer">
+      <!-- Messages are injected here by JavaScript -->
+      <div class="message assistant-message" id="welcomeMessage">
+        <div class="message-avatar">🌍</div>
+        <div class="message-bubble">
+          <p>
+            Hi there! I'm <strong>Nancy</strong>, your AI travel assistant. ✈️
+          </p>
+          <p>
+            Tell me where you'd like to go, how many people are in your group, and your budget — I'll plan the perfect itinerary for you!
+          </p>
+          <p class="hint">
+            Example: <em>"I want to visit Paris for 2 days with 3 people and a $500 total budget"</em>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Input Area ── -->
+    <div class="input-area">
+      <div class="input-row">
+        <button class="icon-btn mic-btn" id="micBtn" title="Record voice message">
+          🎙️
+        </button>
+        <textarea
+          id="userInput"
+          class="chat-input"
+          placeholder="Ask me about activities, restaurants, events in any city…"
+          rows="1"
+        ></textarea>
+        <button class="icon-btn send-btn" id="sendBtn" title="Send message">
+          ➤
+        </button>
+      </div>
+      <div class="input-hints">
+        <span id="recordingStatus" class="recording-status hidden">🔴 Recording…</span>
+        <span class="hint-text">Press 🎙️ to speak or type your question</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>&copy; 2024 NancyTravels · Made with ❤️ for travelers</p>
+  </footer>
+
+  <!-- ── Audio element for TTS playback ── -->
+  <audio id="ttsAudio" style="display:none"></audio>
+
+  <script>
+    // Pass default language from server to JS
+    window.NANCY_DEFAULT_LANGUAGE = "{{ default_language }}";
+  </script>
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

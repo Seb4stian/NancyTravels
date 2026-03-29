@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – NancyTravels</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- ── Navigation ── -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-logo">✈️</span>
+      <span class="nav-title">NancyTravels</span>
+    </div>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Chat</a>
+      <a href="/about" class="nav-link active">About</a>
+    </div>
+  </nav>
+
+  <!-- ── About Hero ── -->
+  <header class="about-hero">
+    <div class="about-hero-content">
+      <h1 class="about-title">About NancyTravels</h1>
+      <p class="about-subtitle">
+        We're on a mission to make travel planning effortless, personalized, and fun — powered by AI.
+      </p>
+    </div>
+  </header>
+
+  <!-- ── Mission Section ── -->
+  <section class="mission-section">
+    <div class="container">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="mission-text">
+        NancyTravels was born from a simple belief: planning a trip should be as exciting as the trip itself.
+        Using the latest advances in artificial intelligence, we search hundreds of travel sources —
+        from restaurants on OpenTable to events on Ticketmaster and attractions on TripAdvisor —
+        to craft a perfectly tailored itinerary that fits your budget and group, so you can focus on
+        making memories.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Team Section ── -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet the Team</h2>
+      <div class="team-grid">
+        {% for member in team %}
+        <div class="team-card">
+          <div class="team-avatar">{{ member.icon }}</div>
+          <h3 class="team-name">{{ member.name }}</h3>
+          <p class="team-title">{{ member.title }}</p>
+          <p class="team-description">{{ member.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features Section ── -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">What We Offer</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3>AI-Powered Planning</h3>
+          <p>GPT-4o understands your preferences and crafts the ideal itinerary for your trip.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎙️</span>
+          <h3>Voice Interaction</h3>
+          <p>Speak naturally to plan your trip — our assistant understands and responds in your language.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">💰</span>
+          <h3>Budget Optimization</h3>
+          <p>We find the best combination of activities to maximize your experience within your budget.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌍</span>
+          <h3>Multi-Language</h3>
+          <p>Chat in English, Spanish, French, or any other language — Nancy speaks your language.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔗</span>
+          <h3>Direct Booking Links</h3>
+          <p>Every recommendation comes with a direct link to book or purchase — no extra steps needed.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🗺️</span>
+          <h3>Smart Itineraries</h3>
+          <p>Get recommendations on the best order to visit places, transportation tips, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>&copy; 2024 NancyTravels · Made with ❤️ for travelers</p>
+  </footer>
+</body>
+</html>

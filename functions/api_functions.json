@@ -1,0 +1,143 @@
+[
+  {
+    "name": "search_restaurants",
+    "description": "Search for restaurants and dining options in a city using OpenTable. Returns a list of available restaurants with reservation links, cuisine types, price ranges, and ratings.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city to search restaurants in (e.g., 'New York', 'Paris')"
+        },
+        "party_size": {
+          "type": "integer",
+          "description": "Number of people dining"
+        },
+        "date": {
+          "type": "string",
+          "description": "Date for the reservation in YYYY-MM-DD format"
+        },
+        "cuisine": {
+          "type": "string",
+          "description": "Type of cuisine preferred (optional)"
+        },
+        "max_price_per_person": {
+          "type": "number",
+          "description": "Maximum price per person in USD (optional)"
+        }
+      },
+      "required": ["city", "party_size"]
+    }
+  },
+  {
+    "name": "search_events",
+    "description": "Search for events, concerts, shows, and attractions in a city using Ticketmaster. Returns a list of upcoming events with ticket purchase links, dates, venues, and price ranges.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city to search events in"
+        },
+        "start_date": {
+          "type": "string",
+          "description": "Start date for event search in YYYY-MM-DD format"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "End date for event search in YYYY-MM-DD format"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of events (e.g., 'music', 'sports', 'arts', 'family')",
+          "enum": ["music", "sports", "arts", "family", "comedy", "theatre", "all"]
+        },
+        "max_price": {
+          "type": "number",
+          "description": "Maximum ticket price in USD"
+        },
+        "num_tickets": {
+          "type": "integer",
+          "description": "Number of tickets needed"
+        }
+      },
+      "required": ["city"]
+    }
+  },
+  {
+    "name": "search_attractions",
+    "description": "Search for tourist attractions, museums, tours, and activities in a city using TripAdvisor. Returns attractions with descriptions, ratings, prices, operating hours, and booking links.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city to search attractions in"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of attractions",
+          "enum": ["sights", "museums", "outdoors", "shopping", "tours", "spas", "all"]
+        },
+        "max_price_per_person": {
+          "type": "number",
+          "description": "Maximum price per person in USD"
+        },
+        "num_people": {
+          "type": "integer",
+          "description": "Number of people"
+        }
+      },
+      "required": ["city"]
+    }
+  },
+  {
+    "name": "search_hotels",
+    "description": "Search for hotels and accommodations in a city using Expedia. Returns available hotels with prices, ratings, amenities, and booking links.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city to search hotels in"
+        },
+        "check_in": {
+          "type": "string",
+          "description": "Check-in date in YYYY-MM-DD format"
+        },
+        "check_out": {
+          "type": "string",
+          "description": "Check-out date in YYYY-MM-DD format"
+        },
+        "num_guests": {
+          "type": "integer",
+          "description": "Number of guests"
+        },
+        "max_price_per_night": {
+          "type": "number",
+          "description": "Maximum price per night in USD"
+        }
+      },
+      "required": ["city", "check_in", "check_out", "num_guests"]
+    }
+  },
+  {
+    "name": "get_city_info",
+    "description": "Get general information about a city including transportation options, neighborhoods, best time to visit, and travel tips using TripAdvisor.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The city to get information about"
+        },
+        "info_type": {
+          "type": "string",
+          "description": "Type of information needed",
+          "enum": ["transportation", "neighborhoods", "tips", "overview", "all"]
+        }
+      },
+      "required": ["city"]
+    }
+  }
+]

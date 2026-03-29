@@ -1,0 +1,13 @@
+Based on your request, I've curated the perfect itinerary for {num_people} people in {city} with a budget of {budget}.
+
+Here's your personalized travel plan:
+
+{itinerary}
+
+💰 BUDGET SUMMARY:
+{budget_summary}
+
+🗺️ TRAVEL TIPS:
+{travel_tips}
+
+Would you like me to adjust anything, add more activities, or get more details about any specific recommendation?
