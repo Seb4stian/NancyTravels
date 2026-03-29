@@ -1,0 +1,37 @@
+{
+  "openai": {
+    "api_key": "YOUR_OPENAI_API_KEY_HERE",
+    "model": "gpt-4o",
+    "tts_model": "tts-1",
+    "tts_voice": "alloy",
+    "stt_model": "whisper-1",
+    "max_tokens": 2048,
+    "temperature": 0.7
+  },
+  "app": {
+    "default_language": "en",
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "secret_key": "CHANGE_THIS_SECRET_KEY"
+  },
+  "external_apis": {
+    "ticketmaster": {
+      "api_key": "YOUR_TICKETMASTER_API_KEY_HERE",
+      "base_url": "https://app.ticketmaster.com/discovery/v2"
+    },
+    "opentable": {
+      "api_key": "YOUR_OPENTABLE_API_KEY_HERE",
+      "base_url": "https://opentable.herokuapp.com/api"
+    },
+    "tripadvisor": {
+      "api_key": "YOUR_TRIPADVISOR_API_KEY_HERE",
+      "base_url": "https://api.content.tripadvisor.com/api/v1"
+    },
+    "expedia": {
+      "api_key": "YOUR_EXPEDIA_API_KEY_HERE",
+      "api_secret": "YOUR_EXPEDIA_API_SECRET_HERE",
+      "base_url": "https://api.ean.com/v3"
+    }
+  }
+}
