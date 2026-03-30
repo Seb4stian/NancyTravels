@@ -107,12 +107,12 @@ def chat():
     if not user_message:
         return jsonify({"error": "Message is required"}), 400
 
-    # Build messages list for OpenAI
+    # Build messages list for the LLM
     messages = list(history)
     messages.append({"role": "user", "content": user_message})
 
     try:
-        # First call to OpenAI (may return function calls)
+        # First call to the LLM (may return function/tool calls)
         result = ai_manager.chat(messages, language=language)
 
         # Handle function calls in a loop (model may chain multiple calls)
@@ -149,7 +149,7 @@ def chat():
                     "result": api_result,
                 })
 
-            # Send results back to OpenAI for a final answer
+            # Send results back to the LLM for a final answer
             result = ai_manager.chat_with_function_results(
                 messages, function_results, language=language
             )
